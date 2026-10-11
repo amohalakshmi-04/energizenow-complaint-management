@@ -1,0 +1,569 @@
+{% extends "base.html" %}
+
+{% block title %}
+EnergizeNow | Complaint & Service Management
+{% endblock %}
+
+{% block content %}
+
+<!-- =========================
+     HERO SECTION
+========================= -->
+
+<section class="modern-hero">
+
+    <div class="hero-background-circle circle-one"></div>
+    <div class="hero-background-circle circle-two"></div>
+
+    <div class="container">
+
+        <div class="row align-items-center min-vh-75">
+
+            <!-- LEFT SIDE -->
+
+            <div class="col-lg-6">
+
+                <div class="hero-badge">
+                    ⚡ Smart Service Management
+                </div>
+
+                <h1 class="hero-title">
+                    Manage Complaints.
+                    <span>Resolve Faster.</span>
+                </h1>
+
+                <p class="hero-description">
+                    EnergizeNow is a centralized platform for
+                    managing customer complaints and service
+                    requests efficiently — from submission
+                    to resolution.
+                </p>
+
+                <div class="hero-actions">
+
+                    <a href="{{ url_for('auth.login') }}"
+                       class="hero-primary-btn">
+
+                        Get Started
+                        <span>→</span>
+
+                    </a>
+
+                    <a href="{{ url_for('auth.login') }}"
+                       class="hero-secondary-btn">
+
+                        Login
+
+                    </a>
+
+                </div>
+
+                <div class="hero-trust">
+
+                    <div class="trust-item">
+
+                        <strong>24/7</strong>
+
+                        <span>Management</span>
+
+                    </div>
+
+                    <div class="trust-divider"></div>
+
+                    <div class="trust-item">
+
+                        <strong>100%</strong>
+
+                        <span>Trackable</span>
+
+                    </div>
+
+                    <div class="trust-divider"></div>
+
+                    <div class="trust-item">
+
+                        <strong>Fast</strong>
+
+                        <span>Resolution</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- RIGHT SIDE -->
+
+            <div class="col-lg-6">
+
+                <div class="hero-dashboard">
+
+                    <div class="dashboard-top">
+
+                        <div>
+
+                            <span class="small-label">
+                                OVERVIEW
+                            </span>
+
+                            <h4>
+                                Service Dashboard
+                            </h4>
+
+                        </div>
+
+                        <div class="live-indicator">
+
+                            <span></span>
+                            Live
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- STAT CARDS -->
+
+                    <div class="mini-stat-grid">
+
+                        <div class="mini-stat-card">
+
+                            <div class="mini-stat-icon">
+                                📋
+                            </div>
+
+                            <div>
+
+                                <span>
+                                    Complaints
+                                </span>
+
+                                <strong>
+                                    Manage
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="mini-stat-card">
+
+                            <div class="mini-stat-icon">
+                                🎫
+                            </div>
+
+                            <div>
+
+                                <span>
+                                    Requests
+                                </span>
+
+                                <strong>
+                                    Track
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- PROGRESS -->
+
+                    <div class="dashboard-progress-card">
+
+                        <div class="progress-header">
+
+                            <span>
+                                Resolution Progress
+                            </span>
+
+                            <strong>
+                                85%
+                            </strong>
+
+                        </div>
+
+                        <div class="custom-progress">
+
+                            <div class="custom-progress-bar"
+                                 style="width:85%;">
+                            </div>
+
+                        </div>
+
+                        <p>
+                            Complaints are being tracked
+                            from submission to resolution.
+                        </p>
+
+                    </div>
+
+
+                    <!-- ACTIVITY -->
+
+                    <div class="activity-card">
+
+                        <div class="activity-title">
+                            Recent Activity
+                        </div>
+
+
+                        <div class="activity-item">
+
+                            <div class="activity-icon">
+                                ✓
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    Complaint resolved
+                                </strong>
+
+                                <small>
+                                    Service issue successfully handled
+                                </small>
+
+                            </div>
+
+                            <span>
+                                Just now
+                            </span>
+
+                        </div>
+
+
+                        <div class="activity-item">
+
+                            <div class="activity-icon blue">
+                                +
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    New service request
+                                </strong>
+
+                                <small>
+                                    Request added to the system
+                                </small>
+
+                            </div>
+
+                            <span>
+                                5 min
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FEATURES
+========================= -->
+
+<section class="modern-features">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div class="section-badge">
+                FEATURES
+            </div>
+
+            <h2>
+                Everything You Need
+                <span>In One Place</span>
+            </h2>
+
+            <p>
+                A simple and efficient platform designed
+                to make complaint and service management easier.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+            <!-- FEATURE 1 -->
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="modern-feature-card">
+
+                    <div class="feature-number">
+                        01
+                    </div>
+
+                    <div class="modern-feature-icon">
+                        📋
+                    </div>
+
+                    <h3>
+                        Complaint Management
+                    </h3>
+
+                    <p>
+                        Create, track, update and resolve
+                        customer complaints through a
+                        centralized management system.
+                    </p>
+
+                    <a href="{{ url_for('auth.login') }}">
+                        Explore Complaints →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- FEATURE 2 -->
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="modern-feature-card featured-card">
+
+                    <div class="feature-number">
+                        02
+                    </div>
+
+                    <div class="modern-feature-icon">
+                        🎫
+                    </div>
+
+                    <h3>
+                        Service Requests
+                    </h3>
+
+                    <p>
+                        Handle customer service requests
+                        and monitor every request from
+                        creation to completion.
+                    </p>
+
+                    <a href="{{ url_for('auth.login') }}">
+                        Explore Requests →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- FEATURE 3 -->
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="modern-feature-card">
+
+                    <div class="feature-number">
+                        03
+                    </div>
+
+                    <div class="modern-feature-icon">
+                        📊
+                    </div>
+
+                    <h3>
+                        Smart Dashboard
+                    </h3>
+
+                    <p>
+                        Monitor complaints, service requests,
+                        pending issues and resolutions from
+                        one clear dashboard.
+                    </p>
+
+                    <a href="{{ url_for('auth.login') }}">
+                        View Dashboard →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     WORKFLOW
+========================= -->
+
+<section class="workflow-section">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div class="section-badge">
+                WORKFLOW
+            </div>
+
+            <h2>
+                From Problem to
+                <span>Resolution</span>
+            </h2>
+
+            <p>
+                EnergizeNow simplifies the complete
+                complaint management process.
+            </p>
+
+        </div>
+
+
+        <div class="workflow">
+
+            <div class="workflow-step">
+
+                <div class="workflow-circle">
+                    01
+                </div>
+
+                <h4>
+                    Submit
+                </h4>
+
+                <p>
+                    Customer submits a complaint
+                    or service request.
+                </p>
+
+            </div>
+
+
+            <div class="workflow-line"></div>
+
+
+            <div class="workflow-step">
+
+                <div class="workflow-circle">
+                    02
+                </div>
+
+                <h4>
+                    Assign
+                </h4>
+
+                <p>
+                    Request is assigned for
+                    appropriate handling.
+                </p>
+
+            </div>
+
+
+            <div class="workflow-line"></div>
+
+
+            <div class="workflow-step">
+
+                <div class="workflow-circle">
+                    03
+                </div>
+
+                <h4>
+                    Resolve
+                </h4>
+
+                <p>
+                    Issue is worked on and
+                    resolution is recorded.
+                </p>
+
+            </div>
+
+
+            <div class="workflow-line"></div>
+
+
+            <div class="workflow-step">
+
+                <div class="workflow-circle success">
+                    ✓
+                </div>
+
+                <h4>
+                    Complete
+                </h4>
+
+                <p>
+                    Complaint is resolved and
+                    closed successfully.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CALL TO ACTION
+========================= -->
+
+<section class="modern-cta-section">
+
+    <div class="container">
+
+        <div class="modern-cta">
+
+            <div>
+
+                <div class="cta-small">
+                    ⚡ ENERGIZENOW
+                </div>
+
+                <h2>
+                    Ready to simplify
+                    service management?
+                </h2>
+
+                <p>
+                    Start managing complaints and service
+                    requests with a smarter workflow.
+                </p>
+
+            </div>
+
+            <a href="{{ url_for('auth.login') }}"
+               class="cta-button">
+
+                Get Started
+                <span>→</span>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

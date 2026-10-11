@@ -1,0 +1,194 @@
+{% extends "base.html" %}
+
+{% block title %}
+Update Service Request | EnergizeNow
+{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <!-- HEADER -->
+
+    <div class="form-page-header mb-4">
+
+        <span class="page-label">
+            UPDATE SERVICE REQUEST
+        </span>
+
+        <h1>
+            Update Service Request #{{ service_request.id }}
+        </h1>
+
+        <p>
+            Update the service request status and resolution details.
+        </p>
+
+    </div>
+
+
+    <!-- FORM CARD -->
+
+    <div class="form-card">
+
+        <form
+            method="POST"
+            action="{{ url_for(
+                'service_requests.update_service_request',
+                request_id=service_request.id
+            ) }}"
+        >
+
+            <!-- TITLE -->
+
+            <div class="mb-4">
+
+                <label class="form-label">
+                    Service Request Title
+                </label>
+
+                <input
+                    type="text"
+                    name="title"
+                    class="form-control"
+                    value="{{ service_request.title }}"
+                    readonly
+                >
+
+            </div>
+
+
+            <!-- DESCRIPTION -->
+
+            <div class="mb-4">
+
+                <label class="form-label">
+                    Description
+                </label>
+
+                <textarea
+                    name="description"
+                    class="form-control"
+                    rows="5"
+                    readonly
+                >{{ service_request.description }}</textarea>
+
+            </div>
+
+
+            <!-- PRIORITY -->
+
+            <div class="mb-4">
+
+                <label class="form-label">
+                    Priority
+                </label>
+
+                <input
+                    type="text"
+                    class="form-control"
+                    value="{{ service_request.priority }}"
+                    readonly
+                >
+
+            </div>
+
+
+            <!-- STATUS -->
+
+            <div class="mb-4">
+
+                <label class="form-label">
+                    Status
+                </label>
+
+                <select
+                    name="status"
+                    class="form-select"
+                    required
+                >
+
+                    <option
+                        value="Assigned"
+                        {% if service_request.status == "Assigned" %}
+                        selected
+                        {% endif %}
+                    >
+                        Assigned
+                    </option>
+
+                    <option
+                        value="In Progress"
+                        {% if service_request.status == "In Progress" %}
+                        selected
+                        {% endif %}
+                    >
+                        In Progress
+                    </option>
+
+                    <option
+                        value="Resolved"
+                        {% if service_request.status == "Resolved" %}
+                        selected
+                        {% endif %}
+                    >
+                        Resolved
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- RESOLUTION -->
+
+            <div class="mb-4">
+
+                <label class="form-label">
+                    Resolution
+                </label>
+
+                <textarea
+                    name="resolution"
+                    class="form-control"
+                    rows="5"
+                    placeholder="Enter resolution details..."
+                >{{ service_request.resolution or "" }}</textarea>
+
+                <small class="text-muted">
+                    Resolution is required when status is set to Resolved.
+                </small>
+
+            </div>
+
+
+            <!-- BUTTONS -->
+
+            <div class="form-actions">
+
+                <a
+                    href="{{ url_for(
+                        'service_requests.staff_view_service_request',
+                        request_id=service_request.id
+                    ) }}"
+                    class="btn btn-light"
+                >
+                    Cancel
+                </a>
+
+                <button
+                    type="submit"
+                    class="btn btn-primary"
+                >
+                    Save Changes
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

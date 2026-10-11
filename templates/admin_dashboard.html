@@ -1,0 +1,209 @@
+{% extends "base.html" %}
+
+{% block title %}
+Admin Dashboard - EnergizeNow
+{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <!-- HEADER -->
+    <div class="mb-5">
+
+        <h1 class="fw-bold">
+            Admin Dashboard
+        </h1>
+
+        <p class="text-muted">
+            Manage complaints, service requests and staff assignments.
+        </p>
+
+    </div>
+
+
+    <!-- WELCOME -->
+    <div class="card shadow-sm border-0 mb-4">
+
+        <div class="card-body p-4">
+
+            <h4>
+                Welcome, {{ current_user.name }} 👋
+            </h4>
+
+            <p class="text-muted mb-0">
+                You are logged in as
+                <strong>Administrator</strong>.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- MANAGEMENT CARDS -->
+
+    <div class="row g-4">
+
+
+        <!-- COMPLAINTS -->
+
+        <div class="col-md-6">
+
+            <div class="card shadow-sm border-0 h-100">
+
+                <div class="card-body p-4">
+
+                    <div class="fs-1 mb-3">
+                        📢
+                    </div>
+
+                    <h4>
+                        Complaints
+                    </h4>
+
+                    <p class="text-muted">
+                        View all customer complaints and
+                        assign them to staff members.
+                    </p>
+
+                    <a
+                        href="{{ url_for('complaints.admin_complaints') }}"
+                        class="btn btn-primary"
+                    >
+                        Manage Complaints
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- SERVICE REQUESTS -->
+
+        <div class="col-md-6">
+
+            <div class="card shadow-sm border-0 h-100">
+
+                <div class="card-body p-4">
+
+                    <div class="fs-1 mb-3">
+                        🛠️
+                    </div>
+
+                    <h4>
+                        Service Requests
+                    </h4>
+
+                    <p class="text-muted">
+                        View customer service requests and
+                        assign them to staff members.
+                    </p>
+
+                    <a
+                        href="{{ url_for('service_requests.admin_service_requests') }}"
+                        class="btn btn-primary"
+                    >
+                        Manage Service Requests
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- WORKFLOW -->
+
+    <div class="card shadow-sm border-0 mt-5">
+
+        <div class="card-body p-4">
+
+            <h4 class="mb-4">
+                🔄 Complaint & Service Workflow
+            </h4>
+
+            <div class="row text-center">
+
+                <div class="col-md-3">
+
+                    <div class="fs-2">
+                        👤
+                    </div>
+
+                    <strong>
+                        Customer
+                    </strong>
+
+                    <p class="text-muted small">
+                        Creates complaint/request
+                    </p>
+
+                </div>
+
+
+                <div class="col-md-3">
+
+                    <div class="fs-2">
+                        👨‍💼
+                    </div>
+
+                    <strong>
+                        Admin
+                    </strong>
+
+                    <p class="text-muted small">
+                        Assigns work to staff
+                    </p>
+
+                </div>
+
+
+                <div class="col-md-3">
+
+                    <div class="fs-2">
+                        🧑‍🔧
+                    </div>
+
+                    <strong>
+                        Staff
+                    </strong>
+
+                    <p class="text-muted small">
+                        Handles the issue
+                    </p>
+
+                </div>
+
+
+                <div class="col-md-3">
+
+                    <div class="fs-2">
+                        ✅
+                    </div>
+
+                    <strong>
+                        Resolved
+                    </strong>
+
+                    <p class="text-muted small">
+                        Customer sees resolution
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

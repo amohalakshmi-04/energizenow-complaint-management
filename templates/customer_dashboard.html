@@ -1,0 +1,277 @@
+{% extends "base.html" %}
+
+{% block title %}
+Customer Dashboard - EnergizeNow
+{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <!-- HEADER -->
+
+    <div class="mb-5">
+
+        <h1 class="fw-bold">
+            Customer Dashboard
+        </h1>
+
+        <p class="text-muted">
+            Welcome to your EnergizeNow service center.
+        </p>
+
+    </div>
+
+
+    <!-- WELCOME CARD -->
+
+    <div class="card shadow-sm border-0 mb-4">
+
+        <div class="card-body p-4">
+
+            <h4>
+                Welcome, {{ current_user.name }} 👋
+            </h4>
+
+            <p class="text-muted mb-0">
+                From here you can submit complaints,
+                request services and track their progress.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- ACTION CARDS -->
+
+    <div class="row g-4">
+
+
+        <!-- CREATE COMPLAINT -->
+
+        <div class="col-md-6">
+
+            <div class="card shadow-sm border-0 h-100">
+
+                <div class="card-body p-4">
+
+                    <div class="fs-1 mb-3">
+                        📢
+                    </div>
+
+                    <h4>
+                        Report a Complaint
+                    </h4>
+
+                    <p class="text-muted">
+                        Have a problem? Submit a complaint
+                        and our team will handle it.
+                    </p>
+
+                    <a href="{{ url_for('complaints.customer_add_complaint') }}"
+   class="btn btn-primary">
+    Create Complaint
+</a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- CREATE SERVICE REQUEST -->
+
+        <div class="col-md-6">
+
+            <div class="card shadow-sm border-0 h-100">
+
+                <div class="card-body p-4">
+
+                    <div class="fs-1 mb-3">
+                        🛠️
+                    </div>
+
+                    <h4>
+                        Request a Service
+                    </h4>
+
+                    <p class="text-muted">
+                        Need a service? Submit a request
+                        to the EnergizeNow team.
+                    </p>
+
+                    <a href="{{ url_for('service_requests.customer_add_service_request') }}"
+   class="btn btn-primary">
+    Create Service Request
+</a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- MY COMPLAINTS -->
+
+        <div class="col-md-6">
+
+            <div class="card shadow-sm border-0 h-100">
+
+                <div class="card-body p-4">
+
+                    <div class="fs-1 mb-3">
+                        📋
+                    </div>
+
+                    <h4>
+                        My Complaints
+                    </h4>
+
+                    <p class="text-muted">
+                        View your submitted complaints and
+                        check their current status.
+                    </p>
+
+                    <a
+                        href="{{ url_for('complaints.customer_complaints') }}"
+                        class="btn btn-outline-primary"
+                    >
+                        View My Complaints
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- MY SERVICE REQUESTS -->
+
+        <div class="col-md-6">
+
+            <div class="card shadow-sm border-0 h-100">
+
+                <div class="card-body p-4">
+
+                    <div class="fs-1 mb-3">
+                        🔍
+                    </div>
+
+                    <h4>
+                        My Service Requests
+                    </h4>
+
+                    <p class="text-muted">
+                        Track your service requests and
+                        view completed work.
+                    </p>
+
+                    <a
+                        href="{{ url_for('service_requests.customer_service_requests') }}"
+                        class="btn btn-outline-primary"
+                    >
+                        View My Requests
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- WORKFLOW -->
+
+    <div class="card shadow-sm border-0 mt-5">
+
+        <div class="card-body p-4">
+
+            <h4 class="mb-4">
+                🔄 How Your Request Works
+            </h4>
+
+            <div class="row text-center">
+
+
+                <div class="col-md-3">
+
+                    <div class="fs-2">
+                        📝
+                    </div>
+
+                    <strong>
+                        1. Submit
+                    </strong>
+
+                    <p class="text-muted small">
+                        Create a complaint or service request.
+                    </p>
+
+                </div>
+
+
+                <div class="col-md-3">
+
+                    <div class="fs-2">
+                        👨‍💼
+                    </div>
+
+                    <strong>
+                        2. Assigned
+                    </strong>
+
+                    <p class="text-muted small">
+                        Admin assigns your request to staff.
+                    </p>
+
+                </div>
+
+
+                <div class="col-md-3">
+
+                    <div class="fs-2">
+                        🧑‍🔧
+                    </div>
+
+                    <strong>
+                        3. Work in Progress
+                    </strong>
+
+                    <p class="text-muted small">
+                        Staff works on your issue.
+                    </p>
+
+                </div>
+
+
+                <div class="col-md-3">
+
+                    <div class="fs-2">
+                        ✅
+                    </div>
+
+                    <strong>
+                        4. Resolved
+                    </strong>
+
+                    <p class="text-muted small">
+                        View the resolution and completed work.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

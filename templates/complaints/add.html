@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+
+{% block title %}Add Complaint | EnergizeNow{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <div class="form-page-header">
+
+        <span class="page-label">NEW RECORD</span>
+
+        <h1>
+            Create Complaint
+        </h1>
+
+        <p>
+            Enter the customer complaint details below.
+        </p>
+
+    </div>
+
+
+    <div class="form-card">
+
+        <form method="POST">
+
+            <div class="mb-4">
+
+                <label class="form-label">
+                    Complaint Title
+                </label>
+
+                <input type="text"
+                       name="title"
+                       class="form-control"
+                       placeholder="Enter complaint title"
+                       required>
+
+            </div>
+
+
+            <div class="mb-4">
+
+                <label class="form-label">
+                    Description
+                </label>
+
+                <textarea name="description"
+                          class="form-control"
+                          rows="5"
+                          placeholder="Describe the complaint..."
+                          required></textarea>
+
+            </div>
+
+
+            <div class="row">
+
+                <div class="col-md-6 mb-4">
+
+                    <label class="form-label">
+                        Priority
+                    </label>
+
+                    <select name="priority"
+                            class="form-select">
+
+                        <option value="Low">
+                            Low
+                        </option>
+
+                        <option value="Medium" selected>
+                            Medium
+                        </option>
+
+                        <option value="High">
+                            High
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="col-md-6 mb-4">
+
+                    <label class="form-label">
+                        Category
+                    </label>
+
+                    <select name="category_id"
+                            class="form-select">
+
+                        <option value="">
+                            Select Category
+                        </option>
+
+                        {% for category in categories %}
+
+                        <option value="{{ category.id }}">
+                            {{ category.name }}
+                        </option>
+
+                        {% endfor %}
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <div class="form-actions">
+
+                <a
+    href="{{ url_for('complaints.customer_complaints') }}"
+    class="btn btn-secondary"
+>
+    Cancel
+</a>
+
+                <button type="submit"
+                        class="btn btn-primary">
+                    Create Complaint
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

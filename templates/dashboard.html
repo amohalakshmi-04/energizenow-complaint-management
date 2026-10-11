@@ -1,0 +1,254 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard | EnergizeNow{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <div class="dashboard-header mb-4">
+
+        <div>
+            <span class="page-label">OVERVIEW</span>
+
+            <h1>
+                Dashboard
+            </h1>
+
+            <p>
+                Monitor complaints and service requests
+                from one place.
+            </p>
+        </div>
+
+        <a href="{{ url_for('complaints.add_complaint') }}"
+           class="btn btn-primary">
+            + New Complaint
+        </a>
+
+    </div>
+
+
+    <!-- STATISTICS -->
+
+    <div class="row g-4 mb-4">
+
+        <div class="col-md-6 col-xl-3">
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    📋
+                </div>
+
+                <div>
+                    <p>Total Complaints</p>
+                    <h2>{{ total_complaints }}</h2>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-md-6 col-xl-3">
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    ⏳
+                </div>
+
+                <div>
+                    <p>Pending</p>
+                    <h2>{{ pending_complaints }}</h2>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-md-6 col-xl-3">
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    ⚙️
+                </div>
+
+                <div>
+                    <p>In Progress</p>
+                    <h2>{{ in_progress }}</h2>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-md-6 col-xl-3">
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    ✅
+                </div>
+
+                <div>
+                    <p>Resolved</p>
+                    <h2>{{ resolved }}</h2>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- MANAGEMENT CARDS -->
+
+    <div class="row g-4 mb-4">
+
+        <div class="col-lg-6">
+
+            <div class="dashboard-panel">
+
+                <div class="panel-icon">
+                    🎫
+                </div>
+
+                <h4>
+                    Service Requests
+                </h4>
+
+                <p>
+                    Manage customer service requests and
+                    monitor their progress.
+                </p>
+
+                <div class="panel-number">
+                    {{ total_service_requests }}
+                </div>
+
+                <a href="{{ url_for('service_requests.service_requests') }}"
+                   class="btn btn-outline-primary">
+                    View Service Requests →
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-lg-6">
+
+            <div class="dashboard-panel">
+
+                <div class="panel-icon">
+                    🛠️
+                </div>
+
+                <h4>
+                    Complaint Management
+                </h4>
+
+                <p>
+                    Review, update and resolve customer
+                    complaints efficiently.
+                </p>
+
+                <div class="panel-number">
+                    {{ total_complaints }}
+                </div>
+
+                <a href="{{ url_for('complaints.complaints') }}"
+                   class="btn btn-outline-primary">
+                    View Complaints →
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- STATUS -->
+
+    <div class="dashboard-panel">
+
+        <div class="mb-4">
+
+            <h4>
+                Complaint Status
+            </h4>
+
+            <p>
+                Current status of all complaints
+            </p>
+
+        </div>
+
+
+        <div class="status-grid">
+
+            <div class="status-item">
+
+                <span class="status-dot pending"></span>
+
+                <span>New</span>
+
+                <strong>
+                    {{ pending_complaints }}
+                </strong>
+
+            </div>
+
+
+            <div class="status-item">
+
+                <span class="status-dot progress"></span>
+
+                <span>In Progress</span>
+
+                <strong>
+                    {{ in_progress }}
+                </strong>
+
+            </div>
+
+
+            <div class="status-item">
+
+                <span class="status-dot resolved"></span>
+
+                <span>Resolved</span>
+
+                <strong>
+                    {{ resolved }}
+                </strong>
+
+            </div>
+
+
+            <div class="status-item">
+
+                <span class="status-dot closed"></span>
+
+                <span>Closed</span>
+
+                <strong>
+                    {{ closed }}
+                </strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

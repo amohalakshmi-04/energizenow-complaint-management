@@ -1,0 +1,155 @@
+{% extends "base.html" %}
+
+{% block title %}
+Staff Dashboard - EnergizeNow
+{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <div class="mb-5">
+        <h1 class="fw-bold">Staff Dashboard</h1>
+        <p class="text-muted">
+            Manage complaints and service requests assigned to you.
+        </p>
+    </div>
+
+    <!-- Welcome -->
+
+    <div class="card shadow-sm border-0 mb-4">
+        <div class="card-body p-4">
+
+            <h4>
+                Welcome, {{ current_user.name }} 👋
+            </h4>
+
+            <p class="text-muted mb-0">
+                Check your assigned work and update its progress.
+            </p>
+
+        </div>
+    </div>
+
+
+    <!-- Work Cards -->
+
+    <div class="row g-4">
+
+        <!-- Complaints -->
+
+        <div class="col-md-6">
+
+            <div class="card shadow-sm border-0 h-100">
+
+                <div class="card-body p-4">
+
+                    <div class="fs-1 mb-3">📢</div>
+
+                    <h4>Assigned Complaints</h4>
+
+                    <p class="text-muted">
+                        View complaints assigned to you and
+                        update their progress.
+                    </p>
+
+                    <a
+                        href="{{ url_for('complaints.staff_complaints') }}"
+                        class="btn btn-primary"
+                    >
+                        View Assigned Complaints
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Service Requests -->
+
+        <div class="col-md-6">
+
+            <div class="card shadow-sm border-0 h-100">
+
+                <div class="card-body p-4">
+
+                    <div class="fs-1 mb-3">🛠️</div>
+
+                    <h4>Assigned Service Requests</h4>
+
+                    <p class="text-muted">
+                        View service requests assigned to you
+                        and update their status.
+                    </p>
+
+                    <a
+                        href="{{ url_for('service_requests.staff_service_requests') }}"
+                        class="btn btn-primary"
+                    >
+                        View Assigned Requests
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Workflow -->
+
+    <div class="card shadow-sm border-0 mt-5">
+
+        <div class="card-body p-4">
+
+            <h4 class="mb-4">
+                🔄 Staff Workflow
+            </h4>
+
+            <div class="row text-center">
+
+                <div class="col-md-3">
+                    <div class="fs-2">📥</div>
+                    <strong>Assigned</strong>
+                    <p class="text-muted small">
+                        Admin assigns the work.
+                    </p>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="fs-2">⚙️</div>
+                    <strong>In Progress</strong>
+                    <p class="text-muted small">
+                        Start working on the issue.
+                    </p>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="fs-2">📝</div>
+                    <strong>Add Resolution</strong>
+                    <p class="text-muted small">
+                        Enter the work performed.
+                    </p>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="fs-2">✅</div>
+                    <strong>Resolved</strong>
+                    <p class="text-muted small">
+                        Mark the issue as resolved.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

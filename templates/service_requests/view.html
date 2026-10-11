@@ -1,0 +1,278 @@
+{% extends "base.html" %}
+
+{% block title %}
+Service Request Details | EnergizeNow
+{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <!-- HEADER -->
+
+    <div class="mb-4">
+
+        <span class="page-label">
+            SERVICE REQUEST
+        </span>
+
+        <h1 class="fw-bold mt-2">
+            Service Request Details
+        </h1>
+
+        <p class="text-muted">
+            View service request information and current status.
+        </p>
+
+    </div>
+
+
+    <!-- SERVICE REQUEST CARD -->
+
+    <div class="card shadow-sm border-0">
+
+        <div class="card-body p-4">
+
+            <!-- TITLE -->
+
+            <h3 class="fw-bold mb-3">
+                {{ service_request.title }}
+            </h3>
+
+            <hr>
+
+
+            <!-- DESCRIPTION -->
+
+            <h6 class="fw-bold">
+                Description
+            </h6>
+
+            <p class="text-muted">
+                {{ service_request.description }}
+            </p>
+
+
+            <!-- DETAILS -->
+
+            <div class="row mt-4">
+
+                <!-- PRIORITY -->
+
+                <div class="col-md-4 mb-3">
+
+                    <h6 class="fw-bold">
+                        Priority
+                    </h6>
+
+                    {% if service_request.priority == "High" %}
+
+                    <span class="badge bg-danger">
+                        High
+                    </span>
+
+                    {% elif service_request.priority == "Medium" %}
+
+                    <span class="badge bg-warning text-dark">
+                        Medium
+                    </span>
+
+                    {% else %}
+
+                    <span class="badge bg-secondary">
+                        Low
+                    </span>
+
+                    {% endif %}
+
+                </div>
+
+
+                <!-- STATUS -->
+
+                <div class="col-md-4 mb-3">
+
+                    <h6 class="fw-bold">
+                        Status
+                    </h6>
+
+                    {% if service_request.status == "New" %}
+
+                    <span class="badge bg-primary">
+                        New
+                    </span>
+
+                    {% elif service_request.status == "Assigned" %}
+
+                    <span class="badge bg-info text-dark">
+                        Assigned
+                    </span>
+
+                    {% elif service_request.status == "In Progress" %}
+
+                    <span class="badge bg-warning text-dark">
+                        In Progress
+                    </span>
+
+                    {% elif service_request.status == "Resolved" %}
+
+                    <span class="badge bg-success">
+                        Resolved
+                    </span>
+
+                    {% else %}
+
+                    <span class="badge bg-secondary">
+                        {{ service_request.status }}
+                    </span>
+
+                    {% endif %}
+
+                </div>
+
+
+                <!-- ASSIGNED STAFF -->
+
+                <div class="col-md-4 mb-3">
+
+                    <h6 class="fw-bold">
+                        Assigned Staff
+                    </h6>
+
+                    {% if service_request.assigned_to %}
+
+                    <p class="mb-0">
+                        Staff ID: {{ service_request.assigned_to }}
+                    </p>
+
+                    {% else %}
+
+                    <p class="text-muted mb-0">
+                        Not assigned
+                    </p>
+
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+
+            <!-- RESOLUTION -->
+
+            {% if service_request.resolution %}
+
+            <div class="alert alert-success mt-4">
+
+                <h6 class="fw-bold">
+                    Resolution
+                </h6>
+
+                <p class="mb-0">
+                    {{ service_request.resolution }}
+                </p>
+
+            </div>
+
+            {% else %}
+
+                {% if service_request.status != "Resolved" %}
+
+                <div class="alert alert-light border mt-4">
+
+                    <strong>
+                        Resolution:
+                    </strong>
+
+                    <span class="text-muted">
+                        No resolution has been added yet.
+                    </span>
+
+                </div>
+
+                {% endif %}
+
+            {% endif %}
+
+
+            <!-- ACTION BUTTONS -->
+
+            <div class="mt-4">
+
+
+                <!-- CUSTOMER -->
+
+                {% if customer_view %}
+
+                <a
+                    href="{{ url_for(
+                        'service_requests.customer_service_requests'
+                    ) }}"
+                    class="btn btn-secondary"
+                >
+                    Back to My Service Requests
+                </a>
+
+                {% endif %}
+
+
+                <!-- ADMIN -->
+
+                {% if admin_view %}
+
+                <a
+                    href="{{ url_for(
+                        'service_requests.assign_service_request',
+                        request_id=service_request.id
+                    ) }}"
+                    class="btn btn-primary"
+                >
+                    Assign Staff
+                </a>
+
+                <a
+                    href="{{ url_for(
+                        'service_requests.admin_service_requests'
+                    ) }}"
+                    class="btn btn-secondary"
+                >
+                    Back to All Service Requests
+                </a>
+
+                {% endif %}
+
+
+                <!-- STAFF -->
+
+                {% if staff_view %}
+
+                <a
+                    href="{{ url_for(
+                        'service_requests.update_service_request',
+                        request_id=service_request.id
+                    ) }}"
+                    class="btn btn-primary"
+                >
+                    Update Service Request
+                </a>
+
+                <a
+                    href="{{ url_for(
+                        'service_requests.staff_service_requests'
+                    ) }}"
+                    class="btn btn-secondary"
+                >
+                    Back to Assigned Requests
+                </a>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

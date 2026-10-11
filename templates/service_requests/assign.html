@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <div class="card shadow-sm">
+
+        <div class="card-body">
+
+            <h3 class="mb-4">
+                Assign Service Request
+            </h3>
+
+            <div class="mb-4">
+
+                <h5>{{ service_request.title }}</h5>
+
+                <p class="text-muted">
+                    {{ service_request.description }}
+                </p>
+
+                <span class="badge bg-warning">
+                    {{ service_request.status }}
+                </span>
+
+            </div>
+
+            <form method="POST">
+
+                <div class="mb-3">
+
+                    <label class="form-label">
+                        Select Staff Member
+                    </label>
+
+                    <select
+                        name="staff_id"
+                        class="form-select"
+                        required
+                    >
+
+                        <option value="">
+                            -- Select Staff --
+                        </option>
+
+                        {% for staff in staff_members %}
+
+                        <option
+                            value="{{ staff.id }}"
+                            {% if service_request.assigned_to == staff.id %}
+                            selected
+                            {% endif %}
+                        >
+                            {{ staff.name }} -
+                            {{ staff.email }}
+                        </option>
+
+                        {% endfor %}
+
+                    </select>
+
+                </div>
+
+                <button
+                    type="submit"
+                    class="btn btn-primary"
+                >
+                    Assign to Staff
+                </button>
+
+                <a
+                    href="{{ url_for('service_requests.admin_service_requests') }}"
+                    class="btn btn-secondary"
+                >
+                    Cancel
+                </a>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

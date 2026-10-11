@@ -1,0 +1,186 @@
+{% extends "base.html" %}
+
+{% block title %}
+Update Complaint | EnergizeNow
+{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <!-- PAGE HEADER -->
+    <div class="form-page-header mb-4">
+
+        <span class="page-label">
+            UPDATE RECORD
+        </span>
+
+        <h1>
+            Update Complaint #{{ complaint.id }}
+        </h1>
+
+        <p>
+            Update complaint status and resolution details.
+        </p>
+
+    </div>
+
+
+    <!-- FORM CARD -->
+    <div class="form-card">
+
+        <form
+            method="POST"
+            action="{{ url_for(
+                'complaints.update_complaint',
+                complaint_id=complaint.id
+            ) }}"
+        >
+
+            <!-- COMPLAINT TITLE -->
+            <div class="mb-4">
+
+                <label class="form-label">
+                    Complaint Title
+                </label>
+
+                <input
+                    type="text"
+                    name="title"
+                    class="form-control"
+                    value="{{ complaint.title }}"
+                    readonly
+                >
+
+            </div>
+
+
+            <!-- DESCRIPTION -->
+            <div class="mb-4">
+
+                <label class="form-label">
+                    Description
+                </label>
+
+                <textarea
+                    name="description"
+                    class="form-control"
+                    rows="5"
+                    readonly
+                >{{ complaint.description }}</textarea>
+
+            </div>
+
+
+            <!-- PRIORITY -->
+            <div class="mb-4">
+
+                <label class="form-label">
+                    Priority
+                </label>
+
+                <input
+                    type="text"
+                    class="form-control"
+                    value="{{ complaint.priority }}"
+                    readonly
+                >
+
+            </div>
+
+
+            <!-- STATUS -->
+            <div class="mb-4">
+
+                <label class="form-label">
+                    Status
+                </label>
+
+                <select
+                    name="status"
+                    class="form-select"
+                    required
+                >
+
+                    <option
+                        value="Assigned"
+                        {% if complaint.status == "Assigned" %}
+                        selected
+                        {% endif %}
+                    >
+                        Assigned
+                    </option>
+
+                    <option
+                        value="In Progress"
+                        {% if complaint.status == "In Progress" %}
+                        selected
+                        {% endif %}
+                    >
+                        In Progress
+                    </option>
+
+                    <option
+                        value="Resolved"
+                        {% if complaint.status == "Resolved" %}
+                        selected
+                        {% endif %}
+                    >
+                        Resolved
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- RESOLUTION -->
+            <div class="mb-4">
+
+                <label class="form-label">
+                    Resolution
+                </label>
+
+                <textarea
+                    name="resolution"
+                    class="form-control"
+                    rows="5"
+                    placeholder="Enter resolution details..."
+                >{{ complaint.resolution or "" }}</textarea>
+
+                <small class="text-muted">
+                    Resolution is required when status is set to Resolved.
+                </small>
+
+            </div>
+
+
+            <!-- FORM ACTIONS -->
+            <div class="form-actions">
+
+                <a
+                    href="{{ url_for(
+                        'complaints.staff_view_complaint',
+                        complaint_id=complaint.id
+                    ) }}"
+                    class="btn btn-light"
+                >
+                    Cancel
+                </a>
+
+                <button
+                    type="submit"
+                    class="btn btn-primary"
+                >
+                    Save Changes
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}
